@@ -111,7 +111,8 @@ func (command *Command) Parse() (string, *Token, error) {
 	for i := 1; i < len(os.Args); i++ {
 		val := os.Args[i]
 		if strings.HasPrefix(val, "--") {
-			flags[val] = true
+			_val := strings.TrimPrefix(val, "-")
+			flags[_val] = true
 			continue
 		}
 		if strings.HasPrefix(val, "-") {
